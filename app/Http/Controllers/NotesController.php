@@ -10,14 +10,14 @@ class NotesController extends Controller
 {
     public function store(Request $request,Card $card)
     {
-    	// return $card;
-    	// return $request->all();
-    	// $note = new Note;
-    	// $note->body = $request->body;
-    	// $card->notes()->save($note);
+    	$this->validate($request,[
+            'body'=>'required|min:10'
+            ]);
 
     	$card->notes()->create([
-    		'body'=> $request->body
+    		'body'=> $request->body,
+            'user_id' => 2,
+            'card_id' => $card->id
     		]);
     	return back();
     }
