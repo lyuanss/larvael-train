@@ -6,10 +6,12 @@
         All card
     </h1>
     <div>
+        <li>
     	@foreach($cards as $card)
     		<div>
-    			{{$card->title}}
+    			<a href="cards/{{$card->id}}">{{$card->title}}</a>
     		</div>
     	@endforeach
+        </li>
     </div>
 @stop
